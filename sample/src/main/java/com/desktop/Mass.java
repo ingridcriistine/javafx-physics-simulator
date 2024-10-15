@@ -4,8 +4,6 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 
-
-
 public class Mass {
 
     private double weigth;
@@ -13,7 +11,6 @@ public class Mass {
     private double y;
     private double vx;
     private double vy;
-
 
     public Mass(double weigth,double x,double y,double vx,double vy){
         this.weigth = weigth;
@@ -90,7 +87,4 @@ public class Mass {
     public void setVy(double vy) {
         this.vy = vy;
     }
-
-
-
 }

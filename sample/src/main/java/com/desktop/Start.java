@@ -26,7 +26,6 @@ public class Start implements Initializable{
     @FXML
     private Canvas canva;
 
-
     public static Scene CreateScene() throws Exception{
         URL sceneUrl = Start.class
             .getResource("bg.fxml");
@@ -112,8 +111,4 @@ public class Start implements Initializable{
     @FXML
     public void MouseDown(MouseEvent e){
     }
-
-    private void draw(){
-    }
-
 }
