@@ -3,6 +3,7 @@ package com.desktop;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
+import javafx.scene.text.Font;
 
 public class Mass {
 
@@ -11,13 +12,15 @@ public class Mass {
     private double y;
     private double vx;
     private double vy;
+    private Color color;
 
-    public Mass(double weigth,double x,double y,double vx,double vy){
+    public Mass(double weigth,double x,double y,double vx,double vy, Color color){
         this.weigth = weigth;
         this.x = x;
         this.y = y;
         this.vx = vx;
         this.vy = vy;
+        this.color = color;
     }
 
     public void Calculate(double time, double height, double width){
@@ -43,9 +46,12 @@ public class Mass {
         }        
     }
 
-    public void DrawMass(GraphicsContext g,Color color) {
-        g.setFill(color);
+    public void DrawMass(GraphicsContext g) {
+        g.setFill(this.color);
         g.fillArc(this.x - this.weigth / 2,this.y, this.weigth, this.weigth,0, 360, ArcType.ROUND);
+        g.setFill(Color.BLACK);
+        g.setFont(new Font(this.weigth/4));
+        g.fillText(String.valueOf(this.weigth), this.x - this.weigth / 3, this.y + this.weigth/2);
     }
 
     public double getWeigth() {

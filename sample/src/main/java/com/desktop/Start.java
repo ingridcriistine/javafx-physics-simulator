@@ -59,9 +59,9 @@ public class Start implements Initializable{
         ArrayList<Spring> mola = new ArrayList<>();
 
         for(int i=0;i<10;i++){
-            massa.add(new Mass(20, Math.random()*100, Math.random()*100, 0, 0));
+            massa.add(new Mass(50, Math.random()*100, Math.random()*100, 0, 0,Color.rgb((int)Math.round(Math.random()*255),(int)Math.round(Math.random()*255),(int)Math.round(Math.random()*255), 1.0)));
             for(int j=0;j<i;j++){
-                mola.add(new Spring(massa.get(j), massa.get(i), 20, 50));
+                mola.add(new Spring(massa.get(j), massa.get(i), 1, 300));
             }
         }
 
@@ -79,21 +79,23 @@ public class Start implements Initializable{
                 // spring.DrawSpring(g);
                 // mass.DrawMass(g,Color.RED);
                 // mass2.DrawMass(g,Color.BLUE);
-
+                
                 for (Mass massas : massa) {
                     massas.Calculate(0.05,canva.getHeight(), canva.getWidth());
                 }
+
                 for (Spring molas : mola) {
                     molas.CalculateSpring();
-                }
-
-                for (Mass massas : massa) {
-                    massas.DrawMass(g,Color.rgb((int)Math.round(Math.random()*255),(int)Math.round(Math.random()*255),(int)Math.round(Math.random()*255), 1.0));
                 }
 
                 for (Spring molas : mola) {
                     molas.DrawSpring(g);
                 }
+
+                for (Mass massas : massa) {
+                    massas.DrawMass(g);
+                }
+
             }
         }, 50, 50);
     }
