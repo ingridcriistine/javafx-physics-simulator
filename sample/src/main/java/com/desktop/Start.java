@@ -51,6 +51,7 @@ public class Start implements Initializable{
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+
         // Mass mass = new Mass(30, 30,50,0, 0);
         // Mass mass2 = new Mass(30, 40,0,0 , 0);
         // Spring spring = new Spring(mass, mass2, 50, 50);
@@ -71,6 +72,7 @@ public class Start implements Initializable{
 
                 var g = canva.getGraphicsContext2D();
                 g.clearRect(0, 0, canva.getWidth(), canva.getHeight());
+
                 // mass.Calculate(0.05, canva.getHeight(), canva.getWidth());
                 // mass2.Calculate(0.05, canva.getHeight(), canva.getWidth());
                 // spring.CalculateSpring();
@@ -78,7 +80,6 @@ public class Start implements Initializable{
                 // spring.DrawSpring(g);
                 // mass.DrawMass(g,Color.RED);
                 // mass2.DrawMass(g,Color.BLUE);
-
 
                 for (Mass massas : massa) {
                     massas.Calculate(0.05,canva.getHeight(), canva.getWidth());
@@ -98,14 +99,10 @@ public class Start implements Initializable{
         }, 50, 50);
     }
 
-
     Timer timer = new Timer();
-
-
 
     @FXML
     public void MouseEntered(MouseEvent e){
-        
     }
     
     @FXML
@@ -116,12 +113,7 @@ public class Start implements Initializable{
     public void MouseDown(MouseEvent e){
     }
 
-
     private void draw(){
     }
-
-    private void setCanva() {
-        
-    } 
 
 }
