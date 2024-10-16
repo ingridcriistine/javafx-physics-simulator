@@ -47,18 +47,33 @@ public class Start implements Initializable{
 
         return scene;
     }
+
+
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
-        // Mass mass = new Mass(30, 30,50,0, 0);
-        // Mass mass2 = new Mass(30, 40,0,0 , 0);
-        // Spring spring = new Spring(mass, mass2, 50, 50);
+        Mass mass = new Mass(10, 200,0,0, 0,Color.RED);
+        Mass mass2 = new Mass(10, 300,0,0 , 0,Color.BLUE);
+        Mass mass3 = new Mass(10, 200,100,0 , 0,Color.PURPLE);
+        Mass mass4 = new Mass(10, 300,100,0 , 0,Color.GREEN);
+
+        Spring spring = new Spring(mass, mass2, 111, 100);
+        Spring spring2 = new Spring(mass, mass3, 111, 100);
+
+        Spring spring3 = new Spring(mass4, mass2, 111, 100);
+        Spring spring4 = new Spring(mass4, mass3, 111, 100);
+        
+        Spring spring5 = new Spring(mass, mass4, 111, 141.42135623730950488016887242097);
+        Spring spring6 = new Spring(mass2, mass3, 111, 141.42135623730950488016887242097);
+
+
+        
 
         ArrayList<Mass> massa = new ArrayList<>();
         ArrayList<Spring> mola = new ArrayList<>();
 
-        for(int i=0;i<10;i++){
+        for(int i=0;i<0;i++){
             massa.add(new Mass(50, Math.random()*100, Math.random()*100, 0, 0,Color.rgb((int)Math.round(Math.random()*255),(int)Math.round(Math.random()*255),(int)Math.round(Math.random()*255), 1.0)));
             for(int j=0;j<i;j++){
                 mola.add(new Spring(massa.get(j), massa.get(i), 1, 300));
@@ -72,14 +87,29 @@ public class Start implements Initializable{
                 var g = canva.getGraphicsContext2D();
                 g.clearRect(0, 0, canva.getWidth(), canva.getHeight());
 
-                // mass.Calculate(0.05, canva.getHeight(), canva.getWidth());
-                // mass2.Calculate(0.05, canva.getHeight(), canva.getWidth());
-                // spring.CalculateSpring();
-                
-                // spring.DrawSpring(g);
-                // mass.DrawMass(g,Color.RED);
-                // mass2.DrawMass(g,Color.BLUE);
-                
+                mass.Calculate(0.05, canva.getHeight(), canva.getWidth());
+                mass2.Calculate(0.05, canva.getHeight(), canva.getWidth());
+                mass3.Calculate(0.05, canva.getHeight(), canva.getWidth());
+                mass4.Calculate(0.05, canva.getHeight(), canva.getWidth());
+
+                spring.CalculateSpring();
+                spring2.CalculateSpring();
+                spring3.CalculateSpring();
+                spring4.CalculateSpring();
+                spring5.CalculateSpring();
+                spring6.CalculateSpring();
+
+                spring.DrawSpring(g);
+                spring2.DrawSpring(g);
+                spring3.DrawSpring(g);
+                spring4.DrawSpring(g);
+                spring5.DrawSpring(g);
+                spring6.DrawSpring(g);
+                mass.DrawMass(g);
+                mass2.DrawMass(g);
+                mass3.DrawMass(g);
+                mass4.DrawMass(g);
+
                 for (Mass massas : massa) {
                     massas.Calculate(0.05,canva.getHeight(), canva.getWidth());
                 }

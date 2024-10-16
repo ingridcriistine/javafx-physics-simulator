@@ -30,18 +30,18 @@ public class Mass {
         this.x += this.vx * time;
         
         if(this.y+this.weigth>=height){
-            this.vy *= -0.9;
+            this.vy *= -0.8;
             this.y = height-this.weigth;
         }else if(this.y+this.weigth<=0){
-            this.vy *= -0.9;
+            this.vy *= -0.8;
             this.y = 0 ;
         }
 
         if(this.x>=width){
-            this.vx *= -0.9;
+            this.vx *= -0.8;
             this.x = width;
         }else if(this.x<=0){
-            this.vx *= -0.9;
+            this.vx *= -0.8;
             this.x = 0 ;
         }        
     }
